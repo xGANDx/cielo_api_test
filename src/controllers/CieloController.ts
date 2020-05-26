@@ -43,9 +43,7 @@ class CieloController {
             .then((venda) => console.log('VENDA CIELO', JSON.stringify(venda, null, '\t')))
             .catch((err) => console.error(err));
 
-        return res.json([{
-            cu: 'pato'
-        }])
+        return res.json([])
     }
 }
 
