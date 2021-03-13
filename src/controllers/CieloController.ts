@@ -17,7 +17,7 @@ class CieloController {
             merchantKey: 'NPGKHFARFASEZEPYEYLTXJMWACSWDEMJWBAKWPQD',
             sandbox: true, // Opcional - Ambiente de Testes
         }
-        
+
         const cielo = new Cielo(cieloParams);
 
         const vendaParams: TransactionCreditCardRequestModel = {
@@ -39,11 +39,10 @@ class CieloController {
                 capture: false,
             },
         };
-        cielo.creditCard.transaction(vendaParams)
-            .then((venda) => console.log('VENDA CIELO', JSON.stringify(venda, null, '\t')))
-            .catch((err) => console.error(err));
+        console.log('ola');
+        const venda = await cielo.creditCard.transaction(vendaParams).catch((e) => console.log(e));
 
-        return res.json([])
+        return res.json(venda);
     }
 }
 
